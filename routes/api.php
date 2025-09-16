@@ -22,6 +22,8 @@ Route::get('/ping', function () {
     ]);
 });
 
+Route::post('/login', [AuthController::class, 'login']);
+
 
 Route::get('/reset-password', function () {
     $u = \App\Models\Miembro::where('correo', 'heinerlandero@gmail.com')->first();
@@ -73,7 +75,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
 
 Route::post('/miembros/{id}/cambiar-password', [MiembroController::class, 'cambiarPassword']);
-Route::post('/login', [AuthController::class, 'login']);
+
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
