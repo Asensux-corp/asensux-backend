@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Hash;
 
 Route::get('/ping', function () {
     return response()->json([
-        'message' => 'API funcionando correctamente 🚀'
+        'message' => 'End point is working',
     ]);
 });
 
