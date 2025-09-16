@@ -9,6 +9,7 @@ use App\Models\UsuarioMaestro;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Response;
 
 class AuthController extends Controller
 {
@@ -37,7 +38,7 @@ class AuthController extends Controller
         // 👉 Crear token con Sanctum
         $token = $usuario->createToken('token-maestro')->plainTextToken;
 
-        return response()->json([
+        return Response::json([
             'token' => $token,
             'usuario' => $usuario
         ]);
@@ -54,6 +55,6 @@ class AuthController extends Controller
 
     public function me(Request $request)
     {
-        return response()->json($request->user());
+        return Response::json($request->user());
     }
 }
